@@ -1,0 +1,50 @@
+@import "https://fonts.googleapis.com/css?family=Poppins";
+
+$font: Poppins, sans-serif;
+$primary-colour: #d1f7ff;
+// $secondary-colour:
+// $tertiary-colour:
+
+@mixin align-sidebar-elements{
+  display: flex;
+  align-items: center;
+}
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  font-family: $font;
+}
+
+#container {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr 6fr;
+  grid-template-areas: 
+    "sidebar banner"
+    "sidebar content";
+}
+
+#sidebar {
+  grid-area: sidebar;
+  background-color: $primary-colour;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 8fr;
+  grid-template-areas: 
+    "logo"
+    "menu";
+  .logo {
+    grid-area: logo;
+    @include align-sidebar-elements;
+  }
+  #menu {
+    grid-area: menu;
+    .tab {
+      @include align-sidebar-elements;
+    }
+  }
+}
