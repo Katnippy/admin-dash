@@ -5,7 +5,7 @@ $primary-colour: #d1f7ff;
 // $secondary-colour:
 // $tertiary-colour:
 
-@mixin align-sidebar-elements{
+@mixin align-sidebar-elements {
   display: flex;
   align-items: center;
 }
@@ -21,8 +21,8 @@ body {
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-columns: 1fr 3fr;
-  grid-template-rows: 1fr 6fr;
+  grid-template-columns: clamp(210px, 25%, 300px) 3fr; // TODO: icons only on mobile //
+  grid-template-rows: 1fr 6fr; 
   grid-template-areas: 
     "sidebar banner"
     "sidebar content";
@@ -40,11 +40,33 @@ body {
   .logo {
     grid-area: logo;
     @include align-sidebar-elements;
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+    i {
+      margin: 32px 13px 0 14px;
+    }
   }
   #menu {
     grid-area: menu;
     .tab {
       @include align-sidebar-elements;
+      display: grid;
+      grid-template-columns: 60px auto;
+      margin-bottom: 20px;
+      i {
+        display: flex;
+        justify-content: center;
+      }
+      h3 {
+        margin: 0;
+        display: flex;
+        justify-content: flex-start;
+      }
+    }
+    #menu-first {
+      margin-bottom: 60px;
     }
   }
 }
+
