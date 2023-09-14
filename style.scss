@@ -21,8 +21,8 @@ body {
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-columns: clamp(210px, 25%, 300px) 3fr; // TODO: icons only on mobile //
-  grid-template-rows: 1fr 6fr; 
+  grid-template-columns: clamp(210px, 25%, 300px) 3fr; // TODO: icons only on mobile
+  grid-template-rows: 1fr 5fr; 
   grid-template-areas: 
     "sidebar banner"
     "sidebar content";
@@ -37,6 +37,7 @@ body {
   grid-template-areas: 
     "logo"
     "menu";
+  // ? Right shadow?
   .logo {
     grid-area: logo;
     @include align-sidebar-elements;
@@ -68,5 +69,49 @@ body {
       margin-bottom: 60px;
     }
   }
+}
+
+.profile-picture {
+  border-radius: 50%;
+  &.small {
+    width: 40px;
+  }
+  &.large {
+    // width: ?;
+  }
+}
+
+#banner {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  #banner-top {
+    display: grid;
+    grid-template-columns: 1fr 7fr 2fr auto 2fr; // TODO: minmax / clamp search bar, disappear bar & name for mobile
+    align-items: center;
+    border-bottom: 1px solid black; // ! Delete when done
+    .fa-magnifying-glass {
+      display: flex; // ? Could replace all flex with grid within a grid
+      justify-content: flex-end;
+      margin-right: 16px;
+    }
+    .search-bar {
+      background-color: #e6ecf5;
+      border-radius: 25px;
+      height: 28px;
+    }
+    .fa-bell {
+      display: flex;
+      justify-content: flex-end;
+      margin-right: 24px;
+    }
+    h4 {
+      margin: 0 0 0 24px;
+    }
+  }
+}
+
+#content {
+  background-color: #e6ecf5;
 }
 
